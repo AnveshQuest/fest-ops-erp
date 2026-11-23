@@ -1,0 +1,17 @@
+Cost Center,Account,Budget Amount (INR),Material Request action,Purchase Order action,Actual expense action
+Pronites - MLN,Artist Fees - MLN,900000,Warn,Stop,Stop
+Pronites - MLN,"Sound, Light & Stage - MLN",400000,Warn,Stop,Stop
+Pronites - MLN,Hospitality & Food - MLN,100000,Warn,Stop,Stop
+Sports - MLN,Sports Equipment & Officials - MLN,250000,Warn,Stop,Stop
+Sports - MLN,Prizes & Trophies - MLN,200000,Warn,Stop,Stop
+Cultural - MLN,Prizes & Trophies - MLN,150000,Warn,Stop,Stop
+Cultural - MLN,"Sound, Light & Stage - MLN",150000,Warn,Stop,Stop
+Technical - MLN,Prizes & Trophies - MLN,100000,Warn,Stop,Stop
+Technical - MLN,Event Materials - MLN,50000,Warn,Stop,Stop
+Hospitality - MLN,Hospitality & Food - MLN,400000,Warn,Stop,Stop
+Production & Logistics - MLN,"Sound, Light & Stage - MLN",350000,Warn,Stop,Stop
+Production & Logistics - MLN,Transport & Logistics - MLN,200000,Warn,Stop,Stop
+Marketing & Design - MLN,Printing & Publicity - MLN,200000,Warn,Stop,Stop
+Security - MLN,Security Services - MLN,250000,Warn,Stop,Stop
+Finance & Admin - MLN,Admin & Miscellaneous - MLN,100000,Warn,Stop,Stop
+Contingency - MLN,Admin & Miscellaneous - MLN,200000,Warn,Stop,Stop

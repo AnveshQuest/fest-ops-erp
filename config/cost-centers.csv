@@ -1,0 +1,12 @@
+Cost Center Name,Parent Cost Center,Is Group,Owner role,Description
+Pronites,Milan 2025 - MLN,0,Head of Pronites,"Artist nights: artists, sound and light, riders"
+Sports,Milan 2025 - MLN,0,Sports Head,"Inter-hostel sports events"
+Cultural,Milan 2025 - MLN,0,Cultural Head,"Inter-hostel cultural events"
+Technical,Milan 2025 - MLN,0,Technical Head,"Inter-hostel technical events"
+Hospitality,Milan 2025 - MLN,0,Hospitality Head,"Food and refreshments for teams, judges, guests"
+Production & Logistics,Milan 2025 - MLN,0,Production Head,"Stages, venues, transport, equipment"
+Marketing & Design,Milan 2025 - MLN,0,Marketing Head,"Publicity, printing, social media"
+Security,Milan 2025 - MLN,0,Security Head,"Guards, crowd control"
+Finance & Admin,Milan 2025 - MLN,0,Finance Head,"Admin costs, reimbursements"
+Merchandise,Milan 2025 - MLN,0,Merch Head,"Merch purchases and POS sales (stock-controlled, no expense budget)"
+Contingency,Milan 2025 - MLN,0,Overall Coordinators,"Reserve released only by Coordinators"

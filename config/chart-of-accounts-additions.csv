@@ -1,0 +1,17 @@
+Account Name,Parent Account,Is Group,Root Type,Account Type,Purpose
+Milan Event Expenses,Expenses,1,Expense,,Group for all fest spending
+Artist Fees,Milan Event Expenses,0,Expense,Expense Account,Pronite and event performer fees
+"Sound, Light & Stage",Milan Event Expenses,0,Expense,Expense Account,"Sound, lighting, stage, truss, LED"
+Hospitality & Food,Milan Event Expenses,0,Expense,Expense Account,"Catering, artist riders, refreshments"
+Sports Equipment & Officials,Milan Event Expenses,0,Expense,Expense Account,"Balls, nets, referees, scorers"
+Prizes & Trophies,Milan Event Expenses,0,Expense,Expense Account,"Trophies, medals, cash prizes"
+Event Materials,Milan Event Expenses,0,Expense,Expense Account,"Props, stationery, tech-event components"
+Transport & Logistics,Milan Event Expenses,0,Expense,Expense Account,"Buses, tempo, equipment movement"
+Printing & Publicity,Milan Event Expenses,0,Expense,Expense Account,"Flex, posters, digital promotion"
+Security Services,Milan Event Expenses,0,Expense,Expense Account,"Guards, bouncers, barricading"
+Admin & Miscellaneous,Milan Event Expenses,0,Expense,Expense Account,"Admin, contingency, student reimbursements"
+In-kind Sponsorship Expense,Milan Event Expenses,0,Expense,Expense Account,Contra entry for in-kind sponsorship value
+Milan Income,Income,1,Income,,Group for fest income
+Institute Grant,Milan Income,0,Income,Income Account,Institute / Gymkhana allocation
+Sponsorship Income,Milan Income,0,Income,Income Account,Cash and in-kind sponsorships
+Merchandise Sales,Milan Income,0,Income,Income Account,POS sales of merchandise

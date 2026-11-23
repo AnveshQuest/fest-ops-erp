@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fest Ops ERP</title>
+<meta name="description" content="A retrospective ERPNext rebuild of Milan 2025, IIT Hyderabad's inter-hostel General Championship: department budgets, purchase approvals, artist contracts, sponsor receivables and merch POS.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FFFFFF;
+  --ink:#1A1D2E;
+  --ink-soft:#4A4F66;
+  --ballpoint:#23318C;
+  --pink:#F4CCD7;
+  --pink-deep:#B0365A;
+  --yellow:#FAEBA8;
+  --rule:#D9DCE6;
+  --wash:#F5F6FA;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#12141F; --ink:#ECEEF5; --ink-soft:#A8ADC2; --ballpoint:#8FA0FF;
+    --pink:#5A2A3A; --pink-deep:#FF8DAE; --yellow:#5A4F1E; --rule:#2C3044; --wash:#1A1D2B;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#12141F; --ink:#ECEEF5; --ink-soft:#A8ADC2; --ballpoint:#8FA0FF;
+  --pink:#5A2A3A; --pink-deep:#FF8DAE; --yellow:#5A4F1E; --rule:#2C3044; --wash:#1A1D2B;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Archivo",system-ui,sans-serif;font-variation-settings:"wdth" 100;
+  font-size:17px;line-height:1.6;
+}
+a{color:var(--ballpoint);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--ballpoint);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+.measure{max-width:680px}
+header.top{padding:28px 0 8px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:15px;color:var(--ink-soft)}
+header.top a{color:var(--ink-soft)}
+
+/* hero */
+.hero{padding:40px 0 24px}
+h1{
+  font-variation-settings:"wdth" 68;font-weight:800;
+  font-size:clamp(44px,9vw,104px);line-height:.92;letter-spacing:-.01em;margin:0 0 20px;
+}
+.lede{font-size:clamp(18px,2.2vw,21px);line-height:1.5;color:var(--ink-soft);margin:0 0 12px}
+.status{
+  display:inline-block;margin-top:8px;padding:6px 12px;background:var(--yellow);color:var(--ink);
+  font-size:14px;border-left:3px solid var(--ink)
+}
+
+/* tracker */
+.tracker{margin:40px 0 16px;border-top:2px solid var(--ink);padding-top:20px}
+.tracker-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+.tracker-head h2{font-size:20px;margin:0;font-variation-settings:"wdth" 90}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--ink-soft)}
+.key{display:inline-block;width:12px;height:12px;vertical-align:-1px;margin-right:6px}
+.k-actual{background:var(--ballpoint)}
+.k-committed{background:var(--pink);box-shadow:inset 0 0 0 1px var(--pink-deep)}
+.k-free{background:var(--paper);box-shadow:inset 0 0 0 1px var(--rule)}
+.rows{display:grid;gap:6px}
+.row{display:grid;grid-template-columns:190px 1fr 110px;gap:14px;align-items:center;font-size:15px}
+.row .name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar{height:22px;background:var(--paper);box-shadow:inset 0 0 0 1px var(--rule);display:flex}
+.seg{height:100%}
+.seg.actual{background:var(--ballpoint)}
+.seg.committed{background:var(--pink);box-shadow:inset 0 0 0 1px var(--pink-deep)}
+.seg.over{background:repeating-linear-gradient(135deg,var(--pink-deep) 0 5px,transparent 5px 9px);box-shadow:inset 0 0 0 1.5px var(--pink-deep)}
+.row .avail{text-align:right;color:var(--ink-soft);font-feature-settings:"tnum" 1}
+.row.hot .name{font-weight:700}
+.try{margin-top:22px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+button{
+  font:inherit;font-size:16px;font-weight:600;cursor:pointer;
+  background:var(--ink);color:var(--paper);border:0;padding:12px 18px;border-radius:2px
+}
+button.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+.verdict{
+  margin-top:16px;padding:14px 16px;border:2px solid var(--pink-deep);color:var(--pink-deep);
+  font-weight:600;max-width:680px;display:none;transform-origin:left center
+}
+.verdict.show{display:block;animation:stamp .35s cubic-bezier(.2,1.4,.4,1)}
+@keyframes stamp{from{transform:scale(1.08) rotate(-1.5deg);opacity:0}to{transform:none;opacity:1}}
+.verdict span{display:block;font-weight:400;color:var(--ink-soft);margin-top:4px}
+.note{font-size:14px;color:var(--ink-soft);margin-top:12px}
+
+/* sections */
+section{padding:56px 0;border-top:1px solid var(--rule)}
+h2.sec{font-variation-settings:"wdth" 75;font-weight:800;font-size:clamp(30px,4.5vw,46px);line-height:1;margin:0 0 20px}
+h3{font-size:19px;margin:28px 0 8px}
+p{margin:0 0 14px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+ul.plain{list-style:none;padding:0;margin:0}
+ul.plain li{padding:10px 0;border-bottom:1px solid var(--rule)}
+
+/* method sequence */
+ol.phases{list-style:none;counter-reset:p;padding:0;margin:24px 0 0;display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+ol.phases li{counter-increment:p;padding:16px 16px 18px 0;border-top:2px solid var(--ink);margin-right:12px}
+ol.phases li::before{content:counter(p);font-variation-settings:"wdth" 70;font-weight:800;font-size:30px;line-height:1;display:block;margin-bottom:6px;color:var(--ballpoint)}
+ol.phases b{display:block}
+ol.phases span{font-size:15px;color:var(--ink-soft)}
+
+/* approval chain */
+.chain{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:18px 0}
+.state{padding:8px 12px;border:1.5px solid var(--ink);font-weight:600;font-size:15px;background:var(--paper)}
+.state.ok{border-color:var(--ballpoint);color:var(--ballpoint)}
+.state.no{border-color:var(--pink-deep);color:var(--pink-deep)}
+.chain .via{font-size:14px;color:var(--ink-soft)}
+
+/* fit gap strip */
+.strip{display:flex;height:40px;margin:18px 0 10px;box-shadow:inset 0 0 0 1px var(--rule)}
+.strip div{height:100%}
+.fg-legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px 18px;font-size:15px}
+.fg-legend b{font-variation-settings:"wdth" 75;font-size:22px;margin-right:6px}
+
+table.map{width:100%;border-collapse:collapse;font-size:15px;margin-top:8px}
+table.map th,table.map td{text-align:left;padding:10px 12px 10px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+table.map th{font-weight:700;border-bottom:2px solid var(--ink)}
+.docs{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0 28px}
+.docs a{display:block;padding:12px 0;border-bottom:1px solid var(--rule);text-decoration:none;color:var(--ink)}
+.docs a small{display:block;color:var(--ink-soft);font-size:14px}
+.docs a:hover b{color:var(--ballpoint);text-decoration:underline}
+.results{background:var(--wash);padding:24px;margin-top:12px}
+footer{padding:40px 0 56px;border-top:2px solid var(--ink);font-size:15px;color:var(--ink-soft)}
+
+@media (max-width:760px){
+  .two{grid-template-columns:1fr;gap:8px}
+  ol.phases{grid-template-columns:1fr 1fr}
+  .row{grid-template-columns:1fr auto;gap:4px 10px}
+  .row .avail{font-size:14px;white-space:nowrap}
+  .row .name{grid-column:1/-1}
+  table.map thead{display:none}
+  table.map tr{display:block;padding:10px 0;border-bottom:1px solid var(--rule)}
+  table.map td{display:block;border:0;padding:2px 0}
+  table.map td:first-child{font-weight:700}
+}
+@media (prefers-reduced-motion:reduce){.verdict.show{animation:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <span>Anveshchandra Bavikadi, Head of Pronites, Milan 2025</span>
+    <a href="https://github.com/AnveshQuest/fest-ops-erp">Full documentation on GitHub</a>
+  </header>
+
+  <div class="hero">
+    <h1>Fest Ops ERP</h1>
+    <div class="measure">
+      <p class="lede">I ran pronites for Milan 2025, IIT Hyderabad's inter-hostel General Championship, and watched its money move through WhatsApp and spreadsheets. This is a rebuild of how it should have run in ERPNext: ten departments, one budget each, every purchase approved and every sponsor rupee tracked.</p>
+      <span class="status">A retrospective rebuild, not a live deployment. All figures are anonymised and reconstructed.</span>
+    </div>
+
+    <div class="tracker" aria-labelledby="tracker-title">
+      <div class="tracker-head">
+        <h2 id="tracker-title">Department spend, as the finance head sees it</h2>
+        <div class="legend" aria-hidden="true">
+          <span><i class="key k-actual"></i>Billed</span>
+          <span><i class="key k-committed"></i>Committed in approved POs</span>
+          <span><i class="key k-free"></i>Still available</span>
+        </div>
+      </div>
+      <div class="rows" id="rows" role="list"></div>
+      <div class="try">
+        <button id="tryBtn" type="button">Book a stand-up comic for ₹80,000</button>
+        <button id="resetBtn" type="button" class="ghost" hidden>Reset</button>
+      </div>
+      <div class="verdict" id="verdict" role="status" aria-live="polite">
+        Purchase order stopped: Pronites artist fees budget exceeded by ₹30,000.
+        <span>Artist fees already committed: ₹8,50,000 of ₹9,00,000. The order can be approved only after the coordinators approve a budget revision.</span>
+      </div>
+      <p class="note">Anonymised budget of ₹40,00,000 after 15 test transactions. Real Milan 2025 figures are not published.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="two">
+      <h2 class="sec">How Milan 2025's money moved</h2>
+      <div>
+        <ul class="plain">
+          <li>Requests and approvals lived in WhatsApp threads and email.</li>
+          <li>The budget sheet fell behind the moment a vendor was paid.</li>
+          <li>Artist contracts and advances sat in inboxes, including mine.</li>
+          <li>Sponsor payments were chased from memory after the fest.</li>
+          <li>Merch was sold for cash and UPI with a manual tally.</li>
+        </ul>
+        <p style="margin-top:14px">The question I couldn't answer quickly as Head of Pronites: how much can we still spend, counting what we've already promised vendors?</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">Implemented, not built</h2>
+    <p class="measure">An implementation specialist configures an existing ERP around how the client works. I followed the same phases for Milan 2025, starting from how it actually ran; each has its own document in the repository.</p>
+    <ol class="phases">
+      <li><b>Reconstruct</b><span>How Milan 2025 really ran, checked with teammates</span></li>
+      <li><b>Design</b><span>AS-IS and TO-BE maps, BRD with 26 requirements</span></li>
+      <li><b>Fit-gap</b><span>Each requirement matched to ERPNext or a workaround</span></li>
+      <li><b>Configuration</b><span>Cost centers, budgets, workflow, roles, POS</span></li>
+      <li><b>Migration</b><span>Vendors, sponsors, items, opening merch stock</span></li>
+      <li><b>Testing</b><span>20 UAT cases traced to requirements</span></li>
+      <li><b>Training</b><span>One-page SOP per role, 30-minute sessions</span></li>
+      <li><b>Rollout plan</b><span>Cutover, parallel run and hypercare for a future team</span></li>
+    </ol>
+  </section>
+
+  <section>
+    <div class="two">
+      <div>
+        <h2 class="sec">One path for every rupee spent</h2>
+        <p>In the rebuild, department heads raise requests from their phones. Above ₹50,000 the order can't move without three quotations attached. Above ₹1,00,000 it goes to the faculty-in-charge, who approves from the email. Nobody can approve their own order, and the budget check runs at approval.</p>
+      </div>
+      <div>
+        <div class="chain" aria-label="Purchase order approval states">
+          <span class="state">Draft</span><span class="via">dept head submits</span>
+          <span class="state">Pending finance review</span><span class="via">above ₹1 lakh</span>
+          <span class="state">Pending faculty approval</span><span class="via">approved</span>
+          <span class="state ok">Approved</span>
+        </div>
+        <div class="chain">
+          <span class="via">or, at either review</span><span class="state no">Rejected</span><span class="via">back to the department to revise</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">26 requirements, 1 custom report</h2>
+    <p class="measure">21 of 26 requirements fit ERPNext v16 with standard features or configuration, so the whole setup runs on an ordinary Frappe Cloud site with no custom app.</p>
+    <div class="strip" role="img" aria-label="Fit-gap: 9 standard, 12 configuration, 1 custom, 2 workarounds, 2 awaiting confirmation">
+      <div style="flex:9;background:var(--ballpoint)"></div>
+      <div style="flex:12;background:color-mix(in srgb,var(--ballpoint) 45%,var(--paper))"></div>
+      <div style="flex:1;background:var(--pink-deep)"></div>
+      <div style="flex:2;background:var(--pink)"></div>
+      <div style="flex:2;background:var(--yellow)"></div>
+    </div>
+    <div class="fg-legend">
+      <span><b>9</b>standard</span>
+      <span><b>12</b>configuration</span>
+      <span><b>1</b>custom report</span>
+      <span><b>2</b>workarounds</span>
+      <span><b>2</b>to confirm</span>
+    </div>
+
+    <h3>What each fest need became in ERPNext</h3>
+    <table class="map">
+      <thead><tr><th>Fest need</th><th>ERPNext</th></tr></thead>
+      <tbody>
+        <tr><td>Department budgets that can't be overspent</td><td>Cost centers and budgets that stop purchase orders, warn on requests</td></tr>
+        <tr><td>Spending approvals</td><td>Material request, supplier quotations, purchase order with a 3-level workflow</td></tr>
+        <tr><td>Artist bookings</td><td>Contract linked to the order, 50% advance and 50% on the show day</td></tr>
+        <tr><td>Sponsor money</td><td>Sales invoices with two instalments, receivables ageing</td></tr>
+        <tr><td>Merchandise</td><td>Stock by size, POS with cash and UPI, day-end closing</td></tr>
+        <tr><td>Budget, committed, actual, available</td><td>Custom SQL report joining budgets, open orders and the ledger</td></tr>
+        <tr><td>Student reimbursements</td><td>Purchase invoice to a reimbursements supplier, so the HR app isn't needed</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2 class="sec">Read the documents</h2>
+    <div class="docs">
+      <a href="https://github.com/AnveshQuest/fest-ops-erp/blob/main/docs/02-reconstruction-guide.md"><b>Reconstructing 2025</b><small>Sources, recall interviews, baseline</small></a>
+      <a href="https://github.com/AnveshQuest/fest-ops-erp/blob/main/docs/03-brd.md"><b>Business requirements</b><small>26 functional, 5 non-functional, decision log</small></a>
+      <a href="https://github.com/AnveshQuest/fest-ops-erp/blob/main/docs/04-process-maps.md"><b>Process maps</b><small>Milan 2025 AS-IS and the TO-BE, five processes</small></a>
+      <a href="https://github.com/AnveshQuest/fest-ops-erp/blob/main/docs/05-fit-gap.md"><b>Fit-gap analysis</b><small>Requirement by requirement</small></a>
+      <a href="https://github.com/AnveshQuest/fest-ops-erp/blob/main/docs/06-configuration-runbook.md"><b>Configuration runbook</b><small>15 steps on Frappe Cloud</small></a>
+      <a href="https://github.com/AnveshQuest/fest-ops-erp/blob/main/docs/07-data-migration.md"><b>Data migration</b><small>Import order, cleaning rules, log</small></a>
+      <a href="https://github.com/AnveshQuest/fest-ops-erp/blob/main/docs/08-uat.md"><b>UAT cases</b><small>20 tests with expected results</small></a>
+      <a href="https://github.com/AnveshQuest/fest-ops-erp/tree/main/docs/09-training-sops"><b>Training SOPs</b><small>Six one-page guides by role</small></a>
+      <a href="https://github.com/AnveshQuest/fest-ops-erp/blob/main/config/reports/department-spend-tracker.sql"><b>Spend tracker SQL</b><small>The one custom piece</small></a>
+      <a href="https://github.com/AnveshQuest/fest-ops-erp/tree/main/workbooks"><b>Implementation workbook</b><small>Fit-gap, UAT, logs, budget tracker</small></a>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">Results</h2>
+    <div class="results measure">
+      <p>Milan 2025, reconstructed from records and teammates, compared with the same tasks measured on the rebuild: time to answer a budget question, purchases without a traceable approval, overruns caught before payment, and sponsor money tracked after the fest.</p>
+      <p style="margin:0">Numbers appear here once measured, each labelled with its source.</p>
+    </div>
+  </section>
+
+  <footer>
+    Built by Anveshchandra Bavikadi, B.Tech at IIT Hyderabad and Head of Pronites for Milan 2025. A rebuild for learning and demonstration; names, amounts and vendors are anonymised.
+  </footer>
+</div>
+
+<script>
+const data=[
+  {name:"Pronites",budget:1400000,actual:0,committed:1130000},
+  {name:"Hospitality",budget:400000,actual:0,committed:216000},
+  {name:"Sports",budget:450000,actual:0,committed:36000},
+  {name:"Marketing & Design",budget:200000,actual:11200,committed:0},
+  {name:"Technical",budget:150000,actual:1850,committed:0},
+  {name:"Production & Logistics",budget:550000,actual:0,committed:0},
+  {name:"Cultural",budget:300000,actual:0,committed:0},
+  {name:"Security",budget:250000,actual:0,committed:0},
+  {name:"Contingency",budget:200000,actual:0,committed:0},
+  {name:"Finance & Admin",budget:100000,actual:0,committed:0}
+];
+const max=Math.max(...data.map(d=>d.budget));
+const inr=n=>"₹"+Math.round(n).toLocaleString("en-IN");
+const rowsEl=document.getElementById("rows");
+function render(attempt){
+  rowsEl.innerHTML="";
+  data.forEach(d=>{
+    const row=document.createElement("div");
+    const used=d.actual+d.committed;
+    row.className="row"+(used/d.budget>0.8?" hot":"");
+    row.setAttribute("role","listitem");
+    const w=d.budget/max*100;
+    const over=attempt&&d.name==="Pronites";
+    row.innerHTML=`<span class="name">${d.name}</span>
+      <div class="bar" style="width:${w}%" aria-label="${d.name}: ${inr(d.actual)} billed, ${inr(d.committed)} committed, ${inr(d.budget-used)} available of ${inr(d.budget)}">
+        <div class="seg actual" style="width:${d.actual/d.budget*100}%"></div>
+        <div class="seg committed" style="width:${d.committed/d.budget*100}%"></div>
+        ${over?`<div class="seg over" style="width:${80000/d.budget*100}%"></div>`:""}
+      </div>
+      <span class="avail">${inr(d.budget-used)} left</span>`;
+    rowsEl.appendChild(row);
+  });
+}
+render(false);
+const v=document.getElementById("verdict"),t=document.getElementById("tryBtn"),r=document.getElementById("resetBtn");
+t.addEventListener("click",()=>{render(true);v.classList.remove("show");void v.offsetWidth;v.classList.add("show");t.hidden=true;r.hidden=false;r.focus();});
+r.addEventListener("click",()=>{render(false);v.classList.remove("show");t.hidden=false;r.hidden=true;t.focus();});
+</script>
+</body>
+</html>

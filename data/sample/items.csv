@@ -1,0 +1,29 @@
+Item Code,Item Name,Item Group,Default Unit of Measure,Maintain Stock,Is Purchase Item,Is Sales Item,Valuation Rate,Standard Selling Rate,Description
+ART-FEE,Artist Performance Fee,Artist Services,Nos,0,1,0,0,0,Performance fee per artist/act
+SLS-NIGHT,Sound & Light Package (per night),Production Services,Nos,0,1,0,0,0,"Line array, lights, operator for one night"
+STG-SETUP,Stage & Truss Setup,Production Services,Nos,0,1,0,0,0,Main stage build and dismantle
+LED-WALL,LED Wall (per night),Production Services,Nos,0,1,0,0,0,
+CAT-PLATE,Catering (per plate),Hospitality Services,Nos,0,1,0,0,0,Meal per person
+RIDER-MISC,Artist Rider Items,Hospitality Services,Nos,0,1,0,0,0,Green room and rider requirements
+PRN-FLEX,Flex Printing (per sq ft),Printing & Publicity,Square Foot,0,1,0,0,0,
+PRN-POSTER,Poster Printing (A3),Printing & Publicity,Nos,0,1,0,0,0,
+BUS-DAY,Bus Hire (per day),Transport Services,Day,0,1,0,0,0,
+TEMPO-TRIP,Tempo Trip,Transport Services,Nos,0,1,0,0,0,Equipment movement
+SEC-SHIFT,Security Guard (per shift),Security Services,Nos,0,1,0,0,0,
+TRO-WIN,Trophy - Winner,Prizes & Trophies,Nos,0,1,0,0,0,
+MEDAL-SET,"Medal Set (gold, silver, bronze)",Prizes & Trophies,Nos,0,1,0,0,0,
+SPT-EQP,Sports Equipment (misc),Sports Equipment,Nos,0,1,0,0,0,
+REF-FEE,Referee / Official Fee (per match),Sports Equipment,Nos,0,1,0,0,0,
+EVT-MAT,Event Materials (misc),Event Materials,Nos,0,1,0,0,0,
+REIMB,Student Reimbursement,Admin & Reimbursements,Nos,0,1,0,0,0,Out-of-pocket spend with bill attached
+SPN-TITLE,Title Sponsorship,Sponsorship Packages,Nos,0,0,1,0,0,
+SPN-ASSOC,Associate Sponsorship,Sponsorship Packages,Nos,0,0,1,0,0,
+SPN-EVENT,Event Sponsorship,Sponsorship Packages,Nos,0,0,1,0,0,
+SPN-INKIND,In-kind Partnership (agreed value),Sponsorship Packages,Nos,0,0,1,0,0,
+MER-TEE-S,Milan T-shirt S,Merchandise,Nos,1,1,1,220,399,
+MER-TEE-M,Milan T-shirt M,Merchandise,Nos,1,1,1,220,399,
+MER-TEE-L,Milan T-shirt L,Merchandise,Nos,1,1,1,220,399,
+MER-TEE-XL,Milan T-shirt XL,Merchandise,Nos,1,1,1,220,399,
+MER-HOOD-M,Milan Hoodie M,Merchandise,Nos,1,1,1,520,899,
+MER-HOOD-L,Milan Hoodie L,Merchandise,Nos,1,1,1,520,899,
+MER-BAND,Milan Wristband,Merchandise,Nos,1,1,1,15,49,

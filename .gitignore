@@ -1,0 +1,7 @@
+.DS_Store
+.vercel
+*.tmp
+~$*.xlsx
+# Real client data never goes in this repo
+data/real/
+screenshots/

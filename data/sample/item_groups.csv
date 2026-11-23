@@ -1,0 +1,13 @@
+Item Group Name,Parent Item Group,Is Group,Default Expense Account (set manually),Default Income Account (set manually)
+Artist Services,All Item Groups,0,Artist Fees - MLN,
+Production Services,All Item Groups,0,"Sound, Light & Stage - MLN",
+Hospitality Services,All Item Groups,0,Hospitality & Food - MLN,
+Printing & Publicity,All Item Groups,0,Printing & Publicity - MLN,
+Transport Services,All Item Groups,0,Transport & Logistics - MLN,
+Security Services,All Item Groups,0,Security Services - MLN,
+Prizes & Trophies,All Item Groups,0,Prizes & Trophies - MLN,
+Sports Equipment,All Item Groups,0,Sports Equipment & Officials - MLN,
+Event Materials,All Item Groups,0,Event Materials - MLN,
+Admin & Reimbursements,All Item Groups,0,Admin & Miscellaneous - MLN,
+Sponsorship Packages,All Item Groups,0,,Sponsorship Income - MLN
+Merchandise,All Item Groups,0,Cost of Goods Sold - MLN,Merchandise Sales - MLN

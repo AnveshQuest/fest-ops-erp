@@ -1,0 +1,19 @@
+[
+  {"doctype": "Custom Field", "dt": "Purchase Order", "fieldname": "custom_quotes_compared",
+   "label": "3 Quotes Compared", "fieldtype": "Check", "insert_after": "supplier",
+   "description": "Required before review when Grand Total is above ₹50,000"},
+  {"doctype": "Custom Field", "dt": "Purchase Order", "fieldname": "custom_quote_comparison",
+   "label": "Quote Comparison", "fieldtype": "Attach", "insert_after": "custom_quotes_compared",
+   "depends_on": "eval:doc.custom_quotes_compared"},
+  {"doctype": "Custom Field", "dt": "Contract", "fieldname": "custom_performance_date",
+   "label": "Performance Date", "fieldtype": "Date", "insert_after": "end_date"},
+  {"doctype": "Custom Field", "dt": "Contract", "fieldname": "custom_performance_slot",
+   "label": "Performance Slot", "fieldtype": "Data", "insert_after": "custom_performance_date",
+   "description": "e.g. Night 2, 9:30 pm – 11:00 pm"},
+  {"doctype": "Custom Field", "dt": "Contract", "fieldname": "custom_rider_summary",
+   "label": "Rider Summary", "fieldtype": "Small Text", "insert_after": "custom_performance_slot"},
+  {"doctype": "Custom Field", "dt": "Customer", "fieldname": "custom_sponsorship_tier",
+   "label": "Sponsorship Tier", "fieldtype": "Select", "insert_after": "customer_group",
+   "options": "\nTitle\nAssociate\nEvent\nIn-kind",
+   "depends_on": "eval:doc.customer_group=='Sponsors'"}
+]

@@ -1,0 +1,5 @@
+Payment Terms Template,Payment Term,Invoice Portion (%),Due Date Based On,Credit Days,Description
+Artist 50-50,Artist Advance,50,Day(s) after invoice date,0,Advance on signing the contract
+Artist 50-50,Artist Balance,50,Day(s) after invoice date,0,"Balance on performance day; set the due date to the show date on the PO"
+Sponsor 50-50,Sponsor First Instalment,50,Day(s) after invoice date,7,First half within a week of invoice
+Sponsor 50-50,Sponsor Second Instalment,50,Day(s) after invoice date,30,Second half within 30 days

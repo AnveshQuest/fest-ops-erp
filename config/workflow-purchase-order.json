@@ -1,0 +1,38 @@
+{
+  "doctype": "Workflow",
+  "workflow_name": "Milan PO Approval",
+  "document_type": "Purchase Order",
+  "is_active": 1,
+  "override_status": 0,
+  "send_email_alert": 1,
+  "workflow_state_field": "workflow_state",
+  "states": [
+    {"state": "Draft",                    "doc_status": "0", "allow_edit": "Milan Dept Head"},
+    {"state": "Pending Finance Review",   "doc_status": "0", "allow_edit": "Milan Finance Head"},
+    {"state": "Pending Faculty Approval", "doc_status": "0", "allow_edit": "Milan Faculty Advisor"},
+    {"state": "Approved",                 "doc_status": "1", "allow_edit": "Milan Finance Head"},
+    {"state": "Rejected",                 "doc_status": "0", "allow_edit": "Milan Dept Head"},
+    {"state": "Cancelled",                "doc_status": "2", "allow_edit": "Milan Finance Head"}
+  ],
+  "transitions": [
+    {"state": "Draft", "action": "Submit for Review", "next_state": "Pending Finance Review",
+     "allowed": "Milan Dept Head", "allow_self_approval": 1,
+     "condition": "doc.grand_total <= 50000 or doc.custom_quotes_compared"},
+    {"state": "Pending Finance Review", "action": "Approve", "next_state": "Approved",
+     "allowed": "Milan Finance Head", "allow_self_approval": 0,
+     "condition": "doc.grand_total <= 100000"},
+    {"state": "Pending Finance Review", "action": "Escalate", "next_state": "Pending Faculty Approval",
+     "allowed": "Milan Finance Head", "allow_self_approval": 0,
+     "condition": "doc.grand_total > 100000"},
+    {"state": "Pending Finance Review", "action": "Reject", "next_state": "Rejected",
+     "allowed": "Milan Finance Head", "allow_self_approval": 0},
+    {"state": "Pending Faculty Approval", "action": "Approve", "next_state": "Approved",
+     "allowed": "Milan Faculty Advisor", "allow_self_approval": 0},
+    {"state": "Pending Faculty Approval", "action": "Reject", "next_state": "Rejected",
+     "allowed": "Milan Faculty Advisor", "allow_self_approval": 0},
+    {"state": "Rejected", "action": "Revise", "next_state": "Draft",
+     "allowed": "Milan Dept Head", "allow_self_approval": 1},
+    {"state": "Approved", "action": "Cancel", "next_state": "Cancelled",
+     "allowed": "Milan Finance Head", "allow_self_approval": 0}
+  ]
+}
