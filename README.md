@@ -4,7 +4,7 @@ A retrospective ERP implementation. As **Head of Pronites for Milan 2025** (Octo
 
 > **What this is, and isn't:** Milan 2025 did not run on ERPNext. This is a rebuild: the current-state analysis comes from my own Milan 2025 experience, the system is configured and tested on a live ERPNext site, and all data is **reconstructed and anonymised**. Real vendor, artist, sponsor and budget figures are never committed here.
 
-**Platform:** ERPNext v16 on Frappe Cloud · **Method:** reconstruct the AS-IS → requirements → fit-gap → configuration → data migration → UAT → rollout plan → measure on the demo system
+**Case study:** [fest-ops-erp.vercel.app](https://fest-ops-erp.vercel.app) · **Platform:** ERPNext v16 on Frappe Cloud · **Method:** reconstruct the AS-IS → requirements → fit-gap → configuration → data migration → UAT → rollout plan → measure on the demo system
 
 ---
 

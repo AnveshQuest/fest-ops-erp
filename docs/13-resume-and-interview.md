@@ -18,7 +18,7 @@ Fill [X] and [Y] only from [`11-metrics.md`](11-metrics.md) and re-check the lin
 
 ### One-line project title (projects section)
 
-**Fest Ops ERP — retrospective ERPNext rebuild of Milan 2025, IIT Hyderabad** · github.com/AnveshQuest/fest-ops-erp
+**Fest Ops ERP — retrospective ERPNext rebuild of Milan 2025, IIT Hyderabad** · fest-ops-erp.vercel.app · github.com/AnveshQuest/fest-ops-erp
 
 ## How to describe it in an interview (30 seconds)
 
