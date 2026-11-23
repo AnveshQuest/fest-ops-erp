@@ -12,7 +12,7 @@
 
 Milan is IIT Hyderabad's annual inter-hostel General Championship across sports, cultural and technical events, run entirely by students with a faculty-in-charge. Over a few weeks the organising team buys services from dozens of vendors (sound, stage, catering, printing, transport, security, trophies), books artists for the pronites, raises sponsorship money and sells merchandise.
 
-In Milan 2025 this ran on WhatsApp approvals, a shared budget spreadsheet, email threads for contracts and a sponsor tracker sheet, as seen first-hand by the implementer as Head of Pronites. The result was late visibility of overspending, approvals that were hard to trace, and sponsor money collected late. This BRD specifies the system Milan 2025 should have had.
+In Milan 2025 (October 2025) this ran on WhatsApp approvals, a shared budget spreadsheet, email threads for contracts and a sponsor tracker sheet, as seen first-hand by the implementer as Head of Pronites. The result was late visibility of overspending, approvals that were hard to trace, and sponsor money collected late. This BRD specifies the system Milan 2025 should have had.
 
 ## 2. Business objectives
 
@@ -40,7 +40,7 @@ In Milan 2025 this ran on WhatsApp approvals, a shared budget spreadsheet, email
 
 ## 4. Organisation structure in the system
 
-**Company:** Milan 2025 (abbreviation `MLN`), currency INR, the April–March financial year containing the fest.
+**Company:** Milan 2025 (abbreviation `MLN`), currency INR, financial year April 2025–March 2026 (the fest ran in October 2025).
 
 **Departments (Cost Centers):** Pronites, Sports, Cultural, Technical, Hospitality, Production & Logistics, Marketing & Design, Security, Finance & Admin, Merchandise, Contingency.
 

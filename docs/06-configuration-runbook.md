@@ -24,7 +24,7 @@ Files referenced live in [`config/`](../config/) and [`data/sample/`](../data/sa
 | Currency | INR |
 | Company name | Milan 2025 |
 | Abbreviation | MLN |
-| Financial year | The April–March year that contains Milan 2025 |
+| Financial year | 01-04-2025 to 31-03-2026 (Milan 2025 ran in October 2025) |
 | Chart of accounts | Standard |
 
 ## Step 2 · Chart of accounts additions

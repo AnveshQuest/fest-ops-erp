@@ -1,6 +1,6 @@
 # Fest Ops ERP — rebuilding Milan 2025's operations in ERPNext
 
-A retrospective ERP implementation. As **Head of Pronites for Milan 2025**, IIT Hyderabad's inter-hostel General Championship, I handled artist outreach and the event budget, and saw how the fest's money actually moved. This project rebuilds those operations in **ERPNext v16** — department budgets, purchase approvals, artist contracts, sponsor receivables and merchandise — to show how Milan should have run.
+A retrospective ERP implementation. As **Head of Pronites for Milan 2025** (October 2025), IIT Hyderabad's inter-hostel General Championship, I handled artist outreach and the event budget, and saw how the fest's money actually moved. This project rebuilds those operations in **ERPNext v16** — department budgets, purchase approvals, artist contracts, sponsor receivables and merchandise — to show how Milan should have run.
 
 > **What this is, and isn't:** Milan 2025 did not run on ERPNext. This is a rebuild: the current-state analysis comes from my own Milan 2025 experience, the system is configured and tested on a live ERPNext site, and all data is **reconstructed and anonymised**. Real vendor, artist, sponsor and budget figures are never committed here.
 

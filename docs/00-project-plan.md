@@ -2,7 +2,7 @@
 
 ## 1. Objective
 
-Rebuild the operations of Milan 2025 — budgets, purchasing, artist contracts, sponsorships and merchandise — in ERPNext v16, so that every rupee of fest spending is requested, approved, committed, paid and reported in one system. Show it working end to end on a live ERPNext site with reconstructed data, and document it the way an implementation consultant would for a real client.
+Rebuild the operations of Milan 2025 (held in October 2025) — budgets, purchasing, artist contracts, sponsorships and merchandise — in ERPNext v16, so that every rupee of fest spending is requested, approved, committed, paid and reported in one system. Show it working end to end on a live ERPNext site with reconstructed data, and document it the way an implementation consultant would for a real client.
 
 **Honest framing:** Milan 2025 ran on WhatsApp, sheets and email. This project is a retrospective rebuild by its Head of Pronites; it was not deployed to the 2025 organising team.
 
