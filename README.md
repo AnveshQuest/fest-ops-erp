@@ -2,9 +2,9 @@
 
 A retrospective ERP implementation. As **Head of Pronites for Milan 2025** (October 2025), IIT Hyderabad's inter-hostel General Championship, I handled artist outreach and the event budget, and saw how the fest's money actually moved. This project rebuilds those operations in **ERPNext v16** — department budgets, purchase approvals, artist contracts, sponsor receivables and merchandise — to show how Milan should have run.
 
-> **What this is, and isn't:** Milan 2025 did not run on ERPNext. This is a rebuild: the current-state analysis comes from my own Milan 2025 experience, the system is configured and tested on a live ERPNext site, and all data is **reconstructed and anonymised**. Real vendor, artist, sponsor and budget figures are never committed here.
+> **What this is, and isn't:** Milan 2025 did not run on ERPNext. This is a rebuild: the current-state analysis comes from my own Milan 2025 experience, the ERPNext v16 configuration is fully designed and documented in this repo (the live build on Frappe Cloud is in progress), and all data is **reconstructed and anonymised**. Real vendor, artist, sponsor and budget figures are never committed here.
 
-**Case study:** [fest-ops-erp.vercel.app](https://fest-ops-erp.vercel.app) · **Platform:** ERPNext v16 on Frappe Cloud · **Method:** reconstruct the AS-IS → requirements → fit-gap → configuration → data migration → UAT → rollout plan → measure on the demo system
+**Case study:** [fest-ops-erp.vercel.app](https://fest-ops-erp.vercel.app) · **Platform:** ERPNext v16 on Frappe Cloud (build in progress) · **Method:** reconstruct the AS-IS → requirements → fit-gap → configuration → data migration → UAT → rollout plan → measure on the live site
 
 ---
 
@@ -20,7 +20,7 @@ A fest like Milan moves lakhs of rupees in a few weeks through 10+ student-run d
 
 The question nobody could answer quickly: "how much can Pronites still spend, counting what we've already promised vendors?"
 
-## The rebuild (ERPNext, configured — not coded)
+## The rebuild design (ERPNext configuration, no custom code)
 
 | Fest need | ERPNext feature used |
 |---|---|
@@ -47,7 +47,7 @@ The question nobody could answer quickly: "how much can Pronites still spend, co
 | [`docs/08-uat.md`](docs/08-uat.md) | 20 UAT cases |
 | [`docs/09-training-sops/`](docs/09-training-sops/) | One-page SOP per user task |
 | [`docs/10-rollout-plan.md`](docs/10-rollout-plan.md) | Proposed go-live and hypercare plan for a future Milan team |
-| [`docs/11-metrics.md`](docs/11-metrics.md) | Milan 2025 (reconstructed) vs the rebuild (measured on the demo system) |
+| [`docs/11-metrics.md`](docs/11-metrics.md) | Milan 2025 (reconstructed) vs the rebuild (to be measured on the live site) |
 | [`docs/12-demo-video-script.md`](docs/12-demo-video-script.md) | 3-minute demo script |
 | [`docs/13-resume-and-interview.md`](docs/13-resume-and-interview.md) | Resume bullets and interview stories |
 | [`config/`](config/) | Chart of accounts additions, cost centers, budgets, roles, workflow, custom fields, payment terms, custom report SQL |
@@ -58,7 +58,7 @@ The question nobody could answer quickly: "how much can Pronites still spend, co
 
 ## Results
 
-Measured on the demo system against the reconstructed 2025 process, as described in [`docs/11-metrics.md`](docs/11-metrics.md). Every figure says which side it comes from; none is presented as a result from a live fest.
+No results are reported yet. Once the live ERPNext site is built, the rebuild will be measured against the reconstructed 2025 process, as described in [`docs/11-metrics.md`](docs/11-metrics.md). Every figure will say which side it comes from; none will be presented as a result from a live fest.
 
 ---
 
